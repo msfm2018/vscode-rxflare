@@ -1,0 +1,376 @@
+{
+  "RxFlare Import": {
+    "prefix": "rxi",
+    "body": [
+      "import 'package:rxflare/rxflare.dart';"
+    ],
+    "description": "Import RxFlare"
+  },
+
+  "Reactive Variable": {
+    "prefix": "rxv",
+    "body": [
+      "final ${1:count} = ${2:0}.rx;"
+    ],
+    "description": "Create a reactive variable"
+  },
+
+  "RxState": {
+    "prefix": "rxstate",
+    "body": [
+      "final ${1:count} = RxState<${2:int}>(${3:0});"
+    ],
+    "description": "Create an explicitly typed RxState"
+  },
+
+  "RxBool Toggle": {
+    "prefix": "rxtoggle",
+    "body": [
+      "final ${1:isExpanded} = ${2:false}.rx;",
+      "",
+      "${1:isExpanded}.toggle();"
+    ],
+    "description": "Create and toggle a reactive bool"
+  },
+
+  "RxList": {
+    "prefix": "rxlist",
+    "body": [
+      "final ${1:items} = <${2:String}>[${3}].rxList;"
+    ],
+    "description": "Create a reactive RxList"
+  },
+
+  "RxMap": {
+    "prefix": "rxmap",
+    "body": [
+      "final ${1:user} = <${2:String}, ${3:Object?}>{",
+      "  '${4:name}': ${5:'Tom'},",
+      "}.rxMap;"
+    ],
+    "description": "Create a reactive RxMap"
+  },
+
+  "RxMap Dynamic": {
+    "prefix": "rxmapd",
+    "body": [
+      "final ${1:data} = <String, dynamic>{",
+      "  '${2:name}': ${3:'Tom'},",
+      "}.rxMapD;"
+    ],
+    "description": "Create a reactive JSON Map"
+  },
+
+  "RxSet": {
+    "prefix": "rxset",
+    "body": [
+      "final ${1:tags} = <${2:String}>{${3}}.rxSet;"
+    ],
+    "description": "Create a reactive RxSet"
+  },
+
+  "RxList Map": {
+    "prefix": "rxlistmap",
+    "body": [
+      "final ${1:users} = <Map<String, dynamic>>[",
+      "  {",
+      "    '${2:name}': ${3:'Tom'},",
+      "  },",
+      "].rxListMap;"
+    ],
+    "description": "Create a reactive list of maps"
+  },
+
+  "Rx Widget": {
+    "prefix": "rxw",
+    "body": [
+      "Rx(() => ${1:Text(count.value.toString())}),"
+    ],
+    "description": "Create an Rx widget with automatic dependency tracking"
+  },
+
+  "Rx Custom": {
+    "prefix": "rxwc",
+    "body": [
+      "Rx.custom(",
+      "  builder: () => ${1:Text(count.value.toString())},",
+      "  deps: [${2:count}],",
+      "),"
+    ],
+    "description": "Create an Rx widget with manual dependencies"
+  },
+
+  "RxBuilder": {
+    "prefix": "rxb",
+    "body": [
+      "RxBuilder(",
+      "  builder: (context) {",
+      "    return ${1:Text(count.value.toString())};",
+      "  },",
+      "),"
+    ],
+    "description": "Create an RxBuilder"
+  },
+
+  "RxList Add": {
+    "prefix": "rxla",
+    "body": [
+      "${1:items}.add(${2:'New item'});"
+    ],
+    "description": "Add an item to RxList"
+  },
+
+  "RxMap Update": {
+    "prefix": "rxmu",
+    "body": [
+      "${1:user}['${2:name}'] = ${3:'Jack'};"
+    ],
+    "description": "Update an RxMap value"
+  },
+
+  "RxSet Add": {
+    "prefix": "rxsa",
+    "body": [
+      "${1:tags}.add(${2:'flutter'});"
+    ],
+    "description": "Add an item to RxSet"
+  },
+
+  "RxState Listen": {
+    "prefix": "rxlisten",
+    "body": [
+      "final ${1:cancel} = ${2:count}.listen((value) {",
+      "  ${3:print(value)};",
+      "});"
+    ],
+    "description": "Listen to RxState changes"
+  },
+
+  "RxState Bind": {
+    "prefix": "rxbind",
+    "body": [
+      "final ${1:cancel} = ${2:count}.bind((value) {",
+      "  ${3:print(value)};",
+      "});"
+    ],
+    "description": "Bind a callback to RxState changes"
+  },
+
+  "RxState Listen With ID": {
+    "prefix": "rxid",
+    "body": [
+      "final ${1:cancel} = ${2:count}.listenWithId((value, id) {",
+      "  ${3:print('value: \\$value, id: \\$id')};",
+      "});"
+    ],
+    "description": "Listen to RxState changes with state ID"
+  },
+
+  "RxState Listen Where": {
+    "prefix": "rxwhere",
+    "body": [
+      "final ${1:cancel} = ${2:state}.listenWhere(",
+      "  (value) => ${3:true},",
+      "  (value) {",
+      "    ${4:print(value)};",
+      "  },",
+      ");"
+    ],
+    "description": "Listen to RxState conditionally"
+  },
+
+  "RxState Listen By Key": {
+    "prefix": "rxkey",
+    "body": [
+      "final ${1:cancel} = ${2:state}.listenByKey('${3:name}', (value) {",
+      "  ${4:print(value)};",
+      "});"
+    ],
+    "description": "Listen to a specific Map key or List index"
+  },
+
+  "RxState Update Field": {
+    "prefix": "rxuf",
+    "body": [
+      "${1:state}.updateField('${2:name}', ${3:value});"
+    ],
+    "description": "Update a specific RxState Map field or List index"
+  },
+
+  "RxState Refresh": {
+    "prefix": "rxrefresh",
+    "body": [
+      "${1:state}.refresh();"
+    ],
+    "description": "Manually refresh an RxState"
+  },
+
+  "RxState Async": {
+    "prefix": "rxasync",
+    "body": [
+      "await ${1:state}.runAsync(",
+      "  asyncAction: () async {",
+      "    return ${2:loadData()};",
+      "  },",
+      "  onLoading: (loading) {",
+      "    ${3:isLoading.value = loading};",
+      "  },",
+      "  onError: (error) {",
+      "    ${4:print(error)};",
+      "  },",
+      ");"
+    ],
+    "description": "Run an async action with RxState loading, error and retry support"
+  },
+
+  "RxState Async Status": {
+    "prefix": "rxstatus",
+    "body": [
+      "await ${1:state}.runAsyncWithStatus(",
+      "  asyncAction: () async {",
+      "    return ${2:loadData()};",
+      "  },",
+      "  onLoading: (loading) {",
+      "    ${3:isLoading.value = loading};",
+      "  },",
+      "  onError: (error) {",
+      "    ${4:print(error)};",
+      "  },",
+      ");"
+    ],
+    "description": "Run an async action with loading and error callbacks"
+  },
+
+  "RxState Dispose": {
+    "prefix": "rxdispose",
+    "body": [
+      "${1:state}.dispose();"
+    ],
+    "description": "Dispose an RxState"
+  },
+
+  "RxState Value": {
+    "prefix": "rxvalue",
+    "body": [
+      "${1:state}.value"
+    ],
+    "description": "Access the current RxState value"
+  },
+
+  "RxDI Put": {
+    "prefix": "rxdiput",
+    "body": [
+      "RxDI.put<${1:UserController}>(${2:UserController}());"
+    ],
+    "description": "Register a singleton dependency with RxDI"
+  },
+
+  "RxDI Put Named": {
+    "prefix": "rxdiputname",
+    "body": [
+      "RxDI.put<${1:UserController}>(",
+      "  ${2:UserController}(),",
+      "  name: '${3:default}',",
+      ");"
+    ],
+    "description": "Register a named singleton dependency with RxDI"
+  },
+
+  "RxDI Lazy Put": {
+    "prefix": "rxdilazy",
+    "body": [
+      "RxDI.lazyPut<${1:UserController}>(",
+      "  () => ${1:UserController}(),",
+      ");"
+    ],
+    "description": "Register a lazy dependency with RxDI"
+  },
+
+  "RxDI Lazy Put Named": {
+    "prefix": "rxdilazyname",
+    "body": [
+      "RxDI.lazyPut<${1:UserController}>(",
+      "  () => ${1:UserController}(),",
+      "  name: '${2:default}',",
+      ");"
+    ],
+    "description": "Register a named lazy dependency with RxDI"
+  },
+
+  "RxDI Find": {
+    "prefix": "rxdifind",
+    "body": [
+      "final ${1:controller} = RxDI.find<${2:UserController}>();"
+    ],
+    "description": "Find a registered dependency from RxDI"
+  },
+
+  "RxDI Find Named": {
+    "prefix": "rxdifindname",
+    "body": [
+      "final ${1:controller} = RxDI.find<${2:UserController}>(",
+      "  name: '${3:default}',",
+      ");"
+    ],
+    "description": "Find a named dependency from RxDI"
+  },
+
+  "RxDI Find Or Null": {
+    "prefix": "rxdinull",
+    "body": [
+      "final ${1:controller} = RxDI.findOrNull<${2:UserController}>();"
+    ],
+    "description": "Find a dependency from RxDI and return null if not found"
+  },
+
+  "RxDI Find Or Null Named": {
+    "prefix": "rxdinullname",
+    "body": [
+      "final ${1:controller} = RxDI.findOrNull<${2:UserController}>(",
+      "  name: '${3:default}',",
+      ");"
+    ],
+    "description": "Find a named dependency and return null if not found"
+  },
+
+  "RxDI Delete": {
+    "prefix": "rxdidelete",
+    "body": [
+      "RxDI.delete<${1:UserController}>();"
+    ],
+    "description": "Remove a dependency from RxDI"
+  },
+
+  "RxDI Delete Named": {
+    "prefix": "rxdideletename",
+    "body": [
+      "RxDI.delete<${1:UserController}>(",
+      "  name: '${2:default}',",
+      ");"
+    ],
+    "description": "Remove a named dependency from RxDI"
+  },
+
+  "RxProvider": {
+    "prefix": "rxprovider",
+    "body": [
+      "RxProvider<${1:UserController}>(",
+      "  dependency: ${2:UserController}(),",
+      "  child: ${3:child},",
+      ")"
+    ],
+    "description": "Provide a widget-scoped dependency with RxProvider"
+  },
+
+  "RxProvider Named": {
+    "prefix": "rxprovidername",
+    "body": [
+      "RxProvider<${1:UserController}>(",
+      "  dependency: ${2:UserController}(),",
+      "  name: '${3:default}',",
+      "  child: ${4:child},",
+      ")"
+    ],
+    "description": "Provide a named widget-scoped dependency with RxProvider"
+  }
+}

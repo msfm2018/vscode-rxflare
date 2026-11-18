@@ -1,0 +1,68 @@
+{
+  "name": "rxflare",
+  "displayName": "RxFlare",
+  "description": "Official RxFlare extension for Flutter and Dart developers.",
+  "version": "1.0.0",
+  "publisher": "rxflare",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "flutter",
+    "dart",
+    "rxflare",
+    "reactive",
+    "state-management"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "dart",
+        "path": "./snippets/dart.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "rxflare.createPageWithController",
+        "title": "RxFlare: Create Page + Controller"
+      },
+      {
+        "command": "rxflare.createController",
+        "title": "RxFlare: Create Controller"
+      },
+      {
+        "command": "rxflare.createPage",
+        "title": "RxFlare: Create Page"
+      },
+      {
+        "command": "rxflare.createModel",
+        "title": "RxFlare: Create Model"
+      },
+      {
+        "command": "rxflare.createFeature",
+        "title": "RxFlare: Create Feature"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msfm2018/vscode-rxflare.git"
+  }
+}
